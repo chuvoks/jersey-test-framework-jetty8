@@ -30,14 +30,14 @@
 	<parent>
 		<groupId>com.sun.jersey</groupId>
 		<artifactId>jersey-test-framework</artifactId>
-		<version>1.13</version>
+		<version>1.17.1</version>
 	</parent>
 	<groupId>com.sun.jersey.jersey-test-framework</groupId>
 	<artifactId>jersey-test-framework-jetty8</artifactId>
 	<packaging>jar</packaging>
 	<name>Jersey Test Framework - Jetty 8 Module</name>
 	<properties>
-		<version.jetty>8.1.5.v20120716</version.jetty>
+		<version.jetty>8.1.14.v20131031</version.jetty>
 	</properties>
 	<dependencies>
 		<dependency>
