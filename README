@@ -3,7 +3,7 @@ Jersey Test Framework - Jetty 8 Module
 
 Addon for Jersey Test Framework.
 
-Jetty 8 based TestContainerFactory for Jersey 1.17.1.
+Jetty 8 based TestContainerFactory for Jersey 1.18.
 
 Usage:
 
