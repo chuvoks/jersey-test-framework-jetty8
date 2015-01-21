@@ -50,6 +50,8 @@ import java.util.logging.Logger;
 import javax.servlet.Servlet;
 import javax.ws.rs.core.UriBuilder;
 
+import org.eclipse.jetty.annotations.AnnotationConfiguration;
+import org.eclipse.jetty.plus.webapp.PlusConfiguration;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.servlet.FilterHolder;
@@ -62,6 +64,8 @@ import com.sun.jersey.test.framework.WebAppDescriptor;
 import com.sun.jersey.test.framework.spi.container.TestContainer;
 import com.sun.jersey.test.framework.spi.container.TestContainerException;
 import com.sun.jersey.test.framework.spi.container.TestContainerFactory;
+import org.eclipse.jetty.webapp.Configuration;
+import org.eclipse.jetty.webapp.WebAppContext;
 
 /**
  * A Web-based test container factory for creating test container instances
@@ -186,10 +190,14 @@ public class JettyWebTestContainerFactory implements TestContainerFactory {
 				servletPathLocal = "/*";
 			}
 
-			ServletContextHandler context = new ServletContextHandler();
+			WebAppContext context = new WebAppContext();
 
 			context.setDisplayName("TestContext");
 			context.setContextPath(contextPathLocal);
+			context.setConfigurations(new Configuration[]{
+					new PlusConfiguration(),
+					new AnnotationConfiguration(),
+			});
 
 			if (servletClass != null) {
 				ServletHolder holder = new ServletHolder(
